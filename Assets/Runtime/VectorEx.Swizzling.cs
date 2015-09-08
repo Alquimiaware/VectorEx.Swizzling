@@ -25,5 +25,31 @@
             vector.y = x;
             return vector;
         }
+
+        public static Vector2 XO(this Vector2 vector)
+        {
+            vector.y = 0;
+            return vector;
+        }
+
+        public static Vector2 OX(this Vector2 vector)
+        {
+            vector.y = vector.x;
+            vector.x = 0;
+            return vector;
+        }
+
+        public static Vector2 YO(this Vector2 vector)
+        {
+            vector.x = vector.y;
+            vector.y = 0;
+            return vector;
+        }
+
+        public static Vector2 OY(this Vector2 vector)
+        {
+            vector.x = 0;
+            return vector;
+        }
     }
 }
