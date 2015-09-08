@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityVS.VectorEx.Swizzling.CSharp", "UnityVS.VectorEx.Swizzling.CSharp.csproj", "{B1CC563C-06DD-D83F-150B-7BF6A85CC8F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityVS.VectorEx.Swizzling.CSharp.Editor", "UnityVS.VectorEx.Swizzling.CSharp.Editor.csproj", "{BD321FB2-93C3-74DC-55AC-EDAA0ED0861B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B1CC563C-06DD-D83F-150B-7BF6A85CC8F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1CC563C-06DD-D83F-150B-7BF6A85CC8F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1CC563C-06DD-D83F-150B-7BF6A85CC8F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1CC563C-06DD-D83F-150B-7BF6A85CC8F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD321FB2-93C3-74DC-55AC-EDAA0ED0861B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD321FB2-93C3-74DC-55AC-EDAA0ED0861B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD321FB2-93C3-74DC-55AC-EDAA0ED0861B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD321FB2-93C3-74DC-55AC-EDAA0ED0861B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
