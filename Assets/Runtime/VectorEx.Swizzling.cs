@@ -11,5 +11,11 @@
             vector.y = vector.x;
             return vector;
         }
+
+        public static Vector2 YY(this Vector2 vector)
+        {
+            vector.x = vector.y;
+            return vector;
+        }
     }
 }

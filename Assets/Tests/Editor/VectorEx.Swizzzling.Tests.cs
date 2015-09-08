@@ -16,6 +16,14 @@
                 Assert.AreEqual(V2(0, 0), V2(0, 0).XX());
             }
 
+            [Test]
+            public void YY_FirstSeconds_ReturnsSecondSecond()
+            {
+                Assert.AreEqual(V2(4, 4), V2(3, 4).YY());
+                Assert.AreEqual(V2(2, 2), V2(7, 2).YY());
+                Assert.AreEqual(V2(0, 0), V2(0, 0).YY());
+            }
+
             private Vector2 V2(float x, float y)
             {
                 return new Vector2(x, y);
