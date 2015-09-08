@@ -17,5 +17,13 @@
             vector.x = vector.y;
             return vector;
         }
+
+        public static Vector2 YX(this Vector2 vector)
+        {
+            float x = vector.x;
+            vector.x = vector.y;
+            vector.y = x;
+            return vector;
+        }
     }
 }
