@@ -3,3 +3,5 @@ Temp/
 obj/
 /*.sln
 /*.csproj
+Assets/UnityTestTools/Common/Settings/UnitTestsRunnerSettings.asset
+Assets/UnityTestTools/Common/Settings/UnitTestsRunnerSettings.asset.meta
