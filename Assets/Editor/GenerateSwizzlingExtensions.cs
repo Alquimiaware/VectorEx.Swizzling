@@ -4,7 +4,6 @@
     using System.Collections;
     using UnityEditor;
     using System.IO;
-    using System;
 
     public static class GenerateSwizzlingExtensions
     {
@@ -21,15 +20,16 @@
                 using (var ns = Block("namespace Alquimiaware", code))
                 {
                     ns.WriteLine("using NUnit.Framework;");
+                    ns.WriteLine("using UnityEngine;");
                     ns.CommentLine("This code has been automatically generated. Don't edit manually");
                     ns.CommentLine("It will be overriden after each regeneration");
                     ns.CommentLine("If want to change something, do it in the generator, then regenerate");
                     ns.WriteLine("[TestFixture]");
                     using (var ca = Block("public abstract class VectorExSwizzleTests", code))
                     {
-                        using (var c = Block("public class Vector2 : VectorExSwizzleTests", code))
+                        using (var c = Block("public class Vector2Cases : VectorExSwizzleTests", code))
                         {
-                            CreateTest(c, "XX");
+                            CreateTestV2(c, "XX");
                         }
                     }
 
@@ -38,13 +38,29 @@
             AssetDatabase.Refresh();
         }
 
-        private static void CreateTest(CodeBlock c, string permutation)
+        private static void CreateTestV2(CodeBlock c, string permutation)
         {
+            string source = "xy";
+            System.Func<char, int> getSourceIdx = symbol =>
+            {
+                if (source[0] == symbol) return 0;
+                else return 1;
+            };
+
             var code = c.Code;
             c.WriteLine("[Test]");
+            float anyX = Random.Range(0, 32);
+            float anyY = Random.Range(37, 77);
+            var anySource = new Vector2(anyX, anyY);
+
             using (var m = Block("public void " + permutation + "_Definition()", code))
             {
-                m.CommentLine("TODO: Implement test body generation");
+                m.WriteLine("var sut = new Vector2(" + anyX + "," + anyY + ");");
+                m.WriteLine(
+                    "var expected = new Vector2("
+                    + anySource[getSourceIdx(permutation[0])] + ","
+                    + anySource[getSourceIdx(permutation[1])] + ");");
+                m.WriteLine("Assert.AreEqual(expected, sut." + permutation +"());");
             }
         }
 
@@ -58,7 +74,7 @@
             return new CodeBlock(text, code);
         }
 
-        private class CodeBlock : IDisposable
+        private class CodeBlock : System.IDisposable
         {
             private static int indentLevel;
             private string text;
