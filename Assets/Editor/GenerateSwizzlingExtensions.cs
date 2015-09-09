@@ -35,6 +35,7 @@
 
                 }
             }
+            AssetDatabase.Refresh();
         }
 
         private static void CreateTest(CodeBlock c, string permutation)
