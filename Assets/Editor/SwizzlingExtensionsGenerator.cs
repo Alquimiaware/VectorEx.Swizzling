@@ -99,18 +99,16 @@
         private static void CreateImplementation(CodeBlock c, string permutation, string sourceSymbols)
         {
             var code = c.Code;
-            float anyX = Random.Range(0, 32);
-            float anyY = Random.Range(37, 77);
-            var initValue = GetRandomInitValue(sourceSymbols);
             int outSize = permutation.Length;
             int inSize = sourceSymbols.Length;
 
+            string[] components = permutation.Select(symbol => string.Concat("v.", char.ToLower(symbol))).ToArray();
+
             using (var m = Block("public static Vector" + outSize + " " + permutation + "(this Vector" + inSize + " v)", code))
             {
-                m.WriteLine("return Vector" + outSize + ".zero;");
+                m.WriteLine("return new Vector" + outSize + "(" + string.Join(",", components) + ");");
             }
         }
-
 
         private static void GenerateTestFamily(StreamWriter code, string name, string sourceSymbols)
         {
