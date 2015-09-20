@@ -106,7 +106,12 @@
             int inSize = sourceSymbols.Length;
 
             string[] components = permutation.Select(symbol => string.Concat("v.", char.ToLower(symbol))).ToArray();
+            string docSourceVec = string.Join(",", sourceSymbols.Select(s => s.ToString()).ToArray());
+            string docPermVec = string.Join(",", permutation.Select(s => s.ToString()).ToArray());
 
+            c.WriteLine("///<summary>");
+            c.WriteLine("/// Give a vector (" + docSourceVec + ") returns a vector (" + docPermVec + ")");
+            c.WriteLine("///</summary>");
             using (var m = Block("public static Vector" + outSize + " " + permutation + "(this Vector" + inSize + " v)", code))
             {
                 m.WriteLine("return new Vector" + outSize + "(" + string.Join(",", components) + ");");
