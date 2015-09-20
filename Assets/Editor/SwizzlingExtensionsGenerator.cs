@@ -68,6 +68,9 @@
                     ns.CommentLine("This code has been automatically generated. Don't edit manually");
                     ns.CommentLine("It will be overriden after each regeneration");
                     ns.CommentLine("If want to change something, do it in the generator, then regenerate");
+                    ns.WriteLine("/// <summary>");
+                    ns.WriteLine("/// Extensions to make permutations of Vector 2, 3 and 4");
+                    ns.WriteLine("/// </summary>");
                     using (var c = Block("public static class VectorExSwizzle", code))
                     {
                         GenerateImplementationFamilly(c, "XY");
@@ -134,8 +137,6 @@
         {
             var code = c.Code;
             c.WriteLine("[Test]");
-            float anyX = Random.Range(0, 32);
-            float anyY = Random.Range(37, 77);
             var initValue = GetRandomInitValue(sourceSymbols);
 
             using (var m = Block("public void " + permutation + "_Definition()", code))

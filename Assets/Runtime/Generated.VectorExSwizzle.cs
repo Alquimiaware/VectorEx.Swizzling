@@ -4,6 +4,9 @@ namespace Alquimiaware
 	// This code has been automatically generated. Don't edit manually
 	// It will be overriden after each regeneration
 	// If want to change something, do it in the generator, then regenerate
+	/// <summary>
+	/// Extensions to make permutations of Vector 2, 3 and 4
+	/// </summary>
 	public static class VectorExSwizzle
 	{
 		public static Vector2 XX(this Vector2 v)
